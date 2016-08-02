@@ -1,0 +1,47 @@
+def validBraces(string, type):
+
+
+    braces = {'(': 10, '[': 20, '{': 30, ')': 11, ']': 21, '}': 31}
+    array = []
+
+    if len(string) % 2 == 0 and braces[string[0]] % 2 == 0:
+        try:
+            for symbol in string:
+                array.append(braces[symbol])
+            print(string, array, type)
+
+            for i in range(len(array)):
+
+                #print(array[i])
+                if array[i] % 2 == 0:
+                    #print('Open')
+                    pass
+
+                    if array[i] == array[i + 1] - 1:
+                            #print('True close')
+                        pass
+                    elif array[i + 1] % 2 == 0:
+                            #print('New Open')
+                        pass
+                    else:
+                        raise Exception
+
+
+                else:
+                    pass
+                    #print('Close')
+            return True
+
+        except Exception as e:
+            print('Exception', e)
+            return False
+    else:
+        return False
+
+if __name__ == '__main__':
+    test = (['[(])([', False], ['[]{}()', True], ['({[}])', False], ['{}({})[]', True])
+
+    for i in range(len(test)):
+        print(validBraces(test[i][0], test[i][1]))
+
+
